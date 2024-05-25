@@ -10,6 +10,10 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 
+# Environmental variables
+export EDITOR="nvim"
+export PATH=$HOME/.config/emacs/bin:$PATH
+
 # Source/load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
@@ -39,7 +43,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $real
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
-SAVE_HiST=$HISTSIZE
+SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt appendhistory
 setopt sharehistory
@@ -57,7 +61,14 @@ alias ls="eza --color=always"
 alias vim="nvim"
 alias bat="bat -p"
 alias cat="bat -p"
+alias grep="rg"
+alias find="fd"
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# Node version manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
