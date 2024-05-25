@@ -2,3 +2,4 @@
 ;;; $DOOMDIR/packages.el
 
 (package! evil-tutor)
+(package! mozc)
