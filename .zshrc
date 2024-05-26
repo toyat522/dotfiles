@@ -15,6 +15,16 @@ export PATH=$HOME/.config/emacs/bin:$PATH
 # Source/load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
+# Source fzf if .fzf.zsh exists (for ubuntu not having latest version)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
+
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
@@ -23,9 +33,6 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Load completions
 autoload -U compinit && compinit
@@ -61,7 +68,3 @@ alias bat="bat -p"
 alias cat="bat -p"
 alias grep="rg"
 alias find="fd"
-
-# Shell integrations
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
