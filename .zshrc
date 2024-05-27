@@ -75,5 +75,6 @@ alias find="fd"
 # Custom functions
 sa() {
     source ~/arcturus/dev_ws/install/setup.zsh
+    source ~/arcturus/vrx_ws/install/setup.zsh
 }
 
