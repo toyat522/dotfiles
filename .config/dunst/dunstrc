@@ -12,7 +12,7 @@
     idle_threshold = 120
 
     ### Text ###
-    font = FiraMono Nerd Font 9
+    font = FiraMono Nerd Font 10
     line_height = 0
     markup = full
 
