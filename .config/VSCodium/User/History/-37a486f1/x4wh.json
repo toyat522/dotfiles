@@ -1,0 +1,12 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "editor.fontSize": 18,
+    "editor.fontFamily": "FiraMono Nerd Font",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "keyboard.dispatch": "keyCode",
+    "git.autofetch": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "vim.useSystemClipboard": true,
+    "workbench.colorTheme": "One Dark Pro Darker",
+}
