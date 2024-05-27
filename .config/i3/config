@@ -17,6 +17,9 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 # Start up dropbox
 exec --no-startup-id exec ~/.dropbox-dist/dropboxd
 
+# Start up emacs daemon
+exec --no-startup-id exec /usr/bin/emacs --daemon &
+
 # Applets
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
@@ -58,7 +61,7 @@ bindsym $mod+Shift+Return exec --no-startup-id "alacritty"
 # Kill focused window
 bindsym $mod+Shift+c kill
 
-# Start rofi 
+# Start rofi (looks at /usr/share/applications for applications)
 bindsym $mod+p exec --no-startup-id "rofi -modi drun,run -show drun -icon-theme 'Papirus' -show-icons"
 
 # Change focus
