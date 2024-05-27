@@ -14,6 +14,13 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Source fzf if .fzf.zsh exists (for ubuntu not having latest version)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Source ROS2 and setup argcomplete if installed
+if [[ -f /opt/ros/humble/setup.zsh ]]; then 
+    source /opt/ros/humble/setup.zsh
+    eval "$(register-python-argcomplete3 ros2)"
+    eval "$(register-python-argcomplete3 colcon)"
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
 
@@ -64,3 +71,9 @@ alias bat="bat -p"
 alias cat="bat -p"
 alias grep="rg"
 alias find="fd"
+
+# Custom functions
+sa() {
+    source ~/arcturus/dev_ws/install/setup.zsh
+}
+

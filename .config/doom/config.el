@@ -1,6 +1,6 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-(setq doom-font (font-spec :family "FiraMono Nerd Font" :size 18)
-      doom-variable-pitch-font (font-spec :family "FiraMono Nerd Font" :size 18))
+(setq doom-font (font-spec :family "FiraMono Nerd Font" :size 20)
+      doom-variable-pitch-font (font-spec :family "FiraMono Nerd Font" :size 20))
 
 (setq user-full-name "Toya Takahashi"
       user-mail-address "toyatakahashi522@gmail.com")
