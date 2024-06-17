@@ -23,13 +23,25 @@ require("lazy").setup({
     "nvim-tree/nvim-tree.lua",
     "nvim-tree/nvim-web-devicons",
 
-    -- Auto-completion engine
+    -- Treesitter
     {
-        "hrsh7th/nvim-cmp",
-        config = function()
-            require("config.nvim-cmp")
-        end,
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate"
     },
-    { "hrsh7th/cmp-buffer",   dependencies = { "nvim-cmp" } },
-    { "hrsh7th/cmp-path",     dependencies = { "nvim-cmp" } },
+
+    -- Vimtex
+    {
+        "lervag/vimtex",
+        lazy = false,
+        init = function()
+            vim.g.vimtex_view_method = "zathura"
+        end
+    },
+
+    -- Conquer of Completion
+    {
+        "neoclide/coc.nvim",
+        branch = "release"
+    }
 })
+require("config.coc")

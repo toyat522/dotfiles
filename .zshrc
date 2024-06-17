@@ -76,5 +76,8 @@ alias find="fd"
 sa() {
     source ~/arcturus/dev_ws/install/setup.zsh
     source ~/arcturus/vrx_ws/install/setup.zsh
+    export PATH=~/moos-ivp/bin:$PATH
+    export PATH=~/arcturus/moos-ivp-arcturus/bin:$PATH
+    export IVP_IMAGE_DIRS=~/arcturus/moos-ivp-arcturus/images
 }
 
