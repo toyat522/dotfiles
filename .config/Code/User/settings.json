@@ -12,4 +12,5 @@
     "vim.useSystemClipboard": true,
     "workbench.colorTheme": "One Dark Pro Darker",
     "files.autoSave": "afterDelay",
+    "cmake.showOptionsMovedNotification": false
 }
