@@ -19,13 +19,6 @@ export NVM_DIR="$HOME/.nvm"
 # Source fzf if .fzf.zsh exists (for ubuntu not having latest version)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Source ROS2 and set up argcomplete if installed
-if [[ -f /opt/ros/humble/setup.zsh ]]; then 
-    source /opt/ros/humble/setup.zsh
-    eval "$(register-python-argcomplete3 ros2)"
-    eval "$(register-python-argcomplete3 colcon)"
-fi
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
 
@@ -41,6 +34,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+
+# Add LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # Load completions
 autoload -U compinit && compinit
@@ -77,11 +73,31 @@ alias grep="rg"
 alias find="fd"
 
 # Custom functions
-sa() {
+arcturus() {
+    export ROS_DISTRO=humble
+    source /opt/ros/$ROS_DISTRO/setup.zsh
     source ~/arcturus/dev_ws/install/setup.zsh
     source ~/arcturus/vrx_ws/install/setup.zsh
-    export PATH=~/moos-ivp/bin:$PATH
-    export PATH=~/arcturus/moos-ivp-arcturus/bin:$PATH
-    export IVP_IMAGE_DIRS=~/arcturus/moos-ivp-arcturus/images
+
+    source /usr/share/colcon_cd/function/colcon_cd.sh
+    export _colcon_cd_root=/opt/ros/$ROS_DISTRO/
+    eval "$(register-python-argcomplete3 ros2)"
+    eval "$(register-python-argcomplete3 colcon)"
+    export PYTHONPATH=$PYTHONPATH:~/spark/SuperGluePretrainedNetwork
 }
 
+spark() {
+    unset SHELL
+    export ROS_DISTRO=noetic
+    source /opt/ros/$ROS_DISTRO/setup.zsh
+    source ~/spark/spark_ws/devel/setup.zsh
+    export PYTHONPATH=$PYTHONPATH:~/spark/SuperGluePretrainedNetwork
+}
+
+connect() {
+    xrandr --output $1 --auto --right-of eDP-1
+}
+
+disconnect() {
+    xrandr --output $1 --off
+}
