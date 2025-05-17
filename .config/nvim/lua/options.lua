@@ -19,3 +19,9 @@ vim.opt.cursorline = true -- highlight cursor line underneath the cursor
 vim.opt.incsearch = true  -- search as characters are entered
 vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true  -- but case sensitive if uppercase is entered
+
+-- ASM syntax highlight
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+    pattern = "*.asm",
+    command = "set filetype=masm"
+})

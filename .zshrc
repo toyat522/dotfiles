@@ -61,7 +61,10 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Keybindings
+# Add PlatformIO to PATH if found
+[ -d ~/.platformio ] && export PATH=$PATH:~/.platformio/penv/bin
+
+# Enable vim keybindings
 bindkey -v
 
 # Aliases
@@ -70,7 +73,6 @@ alias vim="nvim"
 alias bat="bat -p"
 alias cat="bat -p"
 alias grep="rg"
-alias find="fd"
 
 # Custom functions
 arcturus() {
@@ -83,15 +85,6 @@ arcturus() {
     export _colcon_cd_root=/opt/ros/$ROS_DISTRO/
     eval "$(register-python-argcomplete3 ros2)"
     eval "$(register-python-argcomplete3 colcon)"
-    export PYTHONPATH=$PYTHONPATH:~/spark/SuperGluePretrainedNetwork
-}
-
-spark() {
-    unset SHELL
-    export ROS_DISTRO=noetic
-    source /opt/ros/$ROS_DISTRO/setup.zsh
-    source ~/spark/spark_ws/devel/setup.zsh
-    export PYTHONPATH=$PYTHONPATH:~/spark/SuperGluePretrainedNetwork
 }
 
 connect() {
@@ -101,3 +94,12 @@ connect() {
 disconnect() {
     xrandr --output $1 --off
 }
+
+send_hex() {
+    local hex_file=$1
+    local serial_port=${2:-/dev/ttyUSB0}  # Default to /dev/ttyUSB0 if not provided
+
+    stty -F "$serial_port" 9600 raw -echo -icrnl
+    tr -d '\r\n' < "$hex_file" > "$serial_port"
+}
+
