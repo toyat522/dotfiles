@@ -38,6 +38,9 @@ zinit light Aloxaf/fzf-tab
 # Add LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
+# Add C++ include directories
+export CPLUS_INCLUDE_PATH=/usr/include/c++/11:/usr/include/x86_64-linux-gnu/c++/11
+
 # Load completions
 autoload -U compinit && compinit
 zinit cdreplay -q
@@ -74,12 +77,9 @@ alias bat="bat -p"
 alias cat="bat -p"
 alias grep="rg"
 
-# Custom functions
-arcturus() {
-    export ROS_DISTRO=humble
-    source /opt/ros/$ROS_DISTRO/setup.zsh
-    source ~/arcturus/dev_ws/install/setup.zsh
-    source ~/arcturus/vrx_ws/install/setup.zsh
+# Source ROS2 function (e.g. sr2 humble)
+sr2() {
+    source /opt/ros/$1/setup.zsh
 
     source /usr/share/colcon_cd/function/colcon_cd.sh
     export _colcon_cd_root=/opt/ros/$ROS_DISTRO/
@@ -87,19 +87,12 @@ arcturus() {
     eval "$(register-python-argcomplete3 colcon)"
 }
 
+# Connect to display (e.g. connect HDMI-1)
 connect() {
     xrandr --output $1 --auto --right-of eDP-1
 }
 
+# Disconnect from display (e.g. disconnect HDMI-1)
 disconnect() {
     xrandr --output $1 --off
 }
-
-send_hex() {
-    local hex_file=$1
-    local serial_port=${2:-/dev/ttyUSB0}  # Default to /dev/ttyUSB0 if not provided
-
-    stty -F "$serial_port" 9600 raw -echo -icrnl
-    tr -d '\r\n' < "$hex_file" > "$serial_port"
-}
-
