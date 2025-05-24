@@ -8,9 +8,9 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/mybar]
-width = 94%:
+width = 98%
 height = 23
-offset-x = 3%
+offset-x = 1%
 offset-y = 0.7%
 radius = 5.0
 fixed-center = true

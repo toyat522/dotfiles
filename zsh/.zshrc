@@ -83,8 +83,8 @@ sr2() {
 
     source /usr/share/colcon_cd/function/colcon_cd.sh
     export _colcon_cd_root=/opt/ros/$ROS_DISTRO/
-    eval "$(register-python-argcomplete3 ros2)"
-    eval "$(register-python-argcomplete3 colcon)"
+    eval "$(register-python-argcomplete ros2)"
+    eval "$(register-python-argcomplete colcon)"
 }
 
 # Connect to display (e.g. connect HDMI-1)
