@@ -38,9 +38,6 @@ zinit light Aloxaf/fzf-tab
 # Add LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
-# Add C++ include directories
-export CPLUS_INCLUDE_PATH=/usr/include/c++/11:/usr/include/x86_64-linux-gnu/c++/11
-
 # Load completions
 autoload -U compinit && compinit
 zinit cdreplay -q

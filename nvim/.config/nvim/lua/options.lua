@@ -27,6 +27,7 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
     command = "set filetype=masm"
 })
 
+-- Show diagnostics on cursor hold
 vim.diagnostic.config({
     virtual_text = false,
     signs = true,
@@ -39,7 +40,6 @@ vim.diagnostic.config({
         border = "rounded",
     },
 })
-
 vim.o.updatetime = 500
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()

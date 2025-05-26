@@ -17,9 +17,6 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 # Start up dropbox
 exec --no-startup-id exec ~/.dropbox-dist/dropboxd
 
-# Start up emacs daemon
-exec --no-startup-id exec /usr/bin/emacs --daemon &
-
 # Applets
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
