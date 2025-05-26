@@ -116,7 +116,21 @@ require("lazy").setup({
         config = function()
             local lspconfig = require("lspconfig")
 
-            lspconfig.pylsp.setup({})
+            lspconfig.pylsp.setup({
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            black = {
+                                enabled = true,
+                            },
+                            pycodestyle = {
+                                enabled = true,
+                                maxLineLength = 88,
+                            },
+                        }
+                    }
+                }
+            })
             lspconfig.clangd.setup({})
         end,
     },
