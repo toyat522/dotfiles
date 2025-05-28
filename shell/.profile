@@ -1,11 +1,6 @@
 # Set editor
 export EDITOR="nvim"
 
-# Add emacs binaries
-if [[ -d $HOME/.config/emacs/bin ]]; then
-    export PATH=$HOME/.config/emacs/bin:$PATH
-fi
-
 # Add user's private executables
 if [[ -d $HOME/.local/bin ]]; then
     export PATH="$HOME/.local/bin:$PATH"
