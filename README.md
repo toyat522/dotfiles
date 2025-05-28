@@ -4,7 +4,7 @@ Install dependencies and recommended tools (on a debian system):
 
 ```
 sudo apt update && sudo apt upgrade
-sudo apt install bat fd-find ranger ripgrep sxiv zathura zsh
+sudo apt install bat fd-find ranger ripgrep sxiv xclip zathura zsh
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
