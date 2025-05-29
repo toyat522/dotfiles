@@ -9,6 +9,11 @@ vim.keymap.set("n", "<A-.>", ":BufferNext<CR>")
 vim.keymap.set("n", "<A-w>", ":BufferClose<CR>")
 
 -- Format file
-vim.keymap.set("n", "=G", function()
-  vim.lsp.buf.format()
-end)
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "python", "cpp" },
+    callback = function()
+        vim.keymap.set("n", "=G", function()
+            vim.lsp.buf.format()
+        end, { buffer = true })
+    end,
+})
