@@ -104,3 +104,8 @@ connect() {
 disconnect() {
     xrandr --output $1 --off
 }
+
+# Mount block device (e.g. mntblk /dev/sda1 /media/$USER/usb-drive)
+mntblk() {
+    sudo mount -o umask=0 $1 $2
+}
