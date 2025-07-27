@@ -68,11 +68,13 @@ setopt hist_find_no_dups
 bindkey -v
 
 # Aliases
-alias ls="eza --color=always"
-alias vim="nvim"
 alias bat="bat -p"
 alias cat="bat -p"
 alias grep="rg"
+alias ls="eza --color=always"
+alias sc="sc-im"
+alias vi="nvim"
+alias vim="nvim"
 
 # Source ROS2 function (e.g. sr2 humble)
 sr2() {

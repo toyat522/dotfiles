@@ -17,6 +17,9 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 # Start up dropbox
 exec --no-startup-id exec ~/.dropbox-dist/dropboxd
 
+# Turn on night light
+exec --no-startup-id redshift -P -O 5000
+
 # Applets
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
