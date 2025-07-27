@@ -78,11 +78,11 @@ alias vim="nvim"
 
 # Source ROS2 function (e.g. sr2 humble)
 sr2() {
-    if [[ "$1" == "vrx" ]]; then
+    if [[ "$1" == "nautiros" ]]; then
         export ROS_DISTRO="jazzy"
         source /opt/ros/$ROS_DISTRO/setup.zsh
-        source $HOME/dev/vrx_ros2/dev_ws/install/setup.zsh
-        source $HOME/dev/vrx_ros2/vrx_ws/install/setup.zsh
+        source $HOME/dev/nautiros_dev/dev_ws/install/setup.zsh
+        source $HOME/dev/nautiros_dev/vrx_ws/install/setup.zsh
         source /usr/share/colcon_cd/function/colcon_cd.sh
         export _colcon_cd_root=/opt/ros/$ROS_DISTRO/
         eval "$(register-python-argcomplete ros2)"
