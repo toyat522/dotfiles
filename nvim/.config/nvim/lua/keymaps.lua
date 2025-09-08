@@ -10,7 +10,7 @@ vim.keymap.set("n", "<A-w>", ":BufferClose<CR>")
 
 -- Format file
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "python", "cpp" },
+    pattern = { "python", "cpp", "cu" },
     callback = function()
         vim.keymap.set("n", "=G", function()
             vim.lsp.buf.format()
