@@ -45,8 +45,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym XF86MonBrightnessUp   exec --no-startup-id light -A 5
 
 # Screenshots
-bindsym --release Print exec --no-startup-id scrot -s "$(xdg-user-dir PICTURES)/$(date).jpg"
-bindsym ctrl+Print exec --no-startup-id scrot "$(xdg-user-dir PICTURES)/$(date).jpg"
+bindsym --release Print exec --no-startup-id gnome-screenshot -a -f "$(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d_%H-%M-%S').png"
+bindsym ctrl+Print exec --no-startup-id gnome-screenshot -f "$(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d_%H-%M-%S').png"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

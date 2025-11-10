@@ -75,6 +75,9 @@ alias ls="eza --color=always"
 alias sc="sc-im"
 alias vi="nvim"
 alias vim="nvim"
+alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+alias ipython3="python3 -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+alias telerun="uvx telerun"
 
 # Source ROS2 function (e.g. sr2 humble)
 sr2() {
@@ -84,6 +87,45 @@ sr2() {
         source $HOME/dev/nautiros_dev/dev_ws/install/setup.zsh
         source $HOME/dev/nautiros_dev/vrx_ws/install/setup.zsh
         source /usr/share/colcon_cd/function/colcon_cd.sh
+        export _colcon_cd_root=/opt/ros/$ROS_DISTRO/
+        eval "$(register-python-argcomplete ros2)"
+        eval "$(register-python-argcomplete colcon)"
+        return
+    fi
+
+    if [[ "$1" == "spark" ]]; then
+        export ROS_DISTRO="jazzy"
+        export ADT4_WS=$HOME/dev/sparklab/spark_ws
+        export ADT4_ENV=$HOME/dev/sparklab
+        export ADT4_DLS_PKG=$ADT4_WS/src/awesome_dcist_t4/dcist_launch_system
+        export ADT4_OUTPUT_DIR=$ADT4_WS/adt4_output/init
+        export ADT4_DEEPGRAM_API_KEY=key
+
+        export ADT4_ROBOT_NAME=hamilton
+        export ADT4_PLATFORM_ID=topaz
+
+        export ADT4_BOSDYN_IP=192.168.80.3
+        export ADT4_BOSDYN_USERNAME=user
+        export ADT4_BOSDYN_PASSWORD=pass
+
+        export ADT4_HERACLES_AGENTS_PATH=$ADT4_WS/src/awesome_dcist_t4/heracles_agents
+        export ADT4_HERACLES_IP=127.0.0.1
+        export ADT4_HERACLES_PORT=7687
+        export ADT4_NEO4J_USERNAME=neo4j
+        export ADT4_NEO4J_PASSWORD=neo4j_pw
+
+        export CONVERSION_TEST_DSG_FILENAME=$ADT4_WS/dsg/hydra/b45_clip_final_connected_rooms_and_labelspace.json
+        export HERACLES_EVALUATION_PATH=$ADT4_WS/src/awesome_dcist_t4/heracles_agents
+        export HERACLES_AGENTS_PATH=$ADT4_WS/src/awesome_dcist_t4/heracles_agents
+        export HERACLES_NEO4J_USERNAME=neo4j
+        export HERACLES_NEO4J_PASSWORD=neo4j_pw
+
+        export PATH=$PATH:$ADT4_WS/src/awesome_dcist_t4/dcist_launch_system/bin
+        export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+        source /opt/ros/$ROS_DISTRO/setup.zsh
+        source $HOME/dev/sparklab/spark_ws/install/setup.zsh
+        source /usr/share/colcon_cd/function/colcon_cd.sh
+        source $ADT4_ENV/spark_env/bin/activate
         export _colcon_cd_root=/opt/ros/$ROS_DISTRO/
         eval "$(register-python-argcomplete ros2)"
         eval "$(register-python-argcomplete colcon)"
