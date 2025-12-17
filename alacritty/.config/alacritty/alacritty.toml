@@ -16,3 +16,6 @@ style = "Italic"
 [font.normal]
 family = "FiraMono Nerd Font"
 style = "Regular"
+
+[keyboard]
+bindings = [ { key = "Return", mods = "Shift", chars = "\n" } ]

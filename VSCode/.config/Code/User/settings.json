@@ -15,5 +15,14 @@
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format"
     },
-    "breadcrumbs.enabled": false
+    "breadcrumbs.enabled": false,
+    "chat.disableAIFeatures": true,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "terminal.integrated.fontSize": 18,
+    "claudeCode.preferredLocation": "panel"
 }
