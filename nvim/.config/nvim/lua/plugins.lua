@@ -114,9 +114,10 @@ require("lazy").setup({
     {
         "neovim/nvim-lspconfig",
         config = function()
-            local lspconfig = require("lspconfig")
-
-            lspconfig.pylsp.setup({
+            vim.lsp.config('pylsp', {
+                cmd = { 'pylsp' },
+                filetypes = { 'python' },
+                root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'Pipfile' },
                 settings = {
                     pylsp = {
                         plugins = {
@@ -131,7 +132,13 @@ require("lazy").setup({
                     }
                 }
             })
-            lspconfig.clangd.setup({})
+            vim.lsp.config('clangd', {
+                cmd = { 'clangd' },
+                filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
+                root_markers = { '.clangd', '.clang-tidy', '.clang-format', 'compile_commands.json', 'compile_flags.txt', 'configure.ac' },
+            })
+
+            vim.lsp.enable({'pylsp', 'clangd'})
         end,
     },
 })
