@@ -9,9 +9,11 @@ sudo apt update && sudo apt upgrade
 sudo apt install \
     bat \
     fd-find \
+    neovim \
+    pamixer \
+    pulseaudio-module-bluetooth \
     ranger \
     ripgrep \
-    neovim \
     software-properties-common \
     sxiv \
     xclip \
