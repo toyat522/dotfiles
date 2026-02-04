@@ -43,3 +43,5 @@ Change the default shell to `zsh`:
 ```
 chsh -s $(which zsh)
 ```
+
+Add secrets such as API keys to `~/.secrets`. This file gets sourced at the end of `~/.zshrc`.

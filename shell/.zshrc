@@ -99,7 +99,6 @@ sr2() {
         export ADT4_ENV=$HOME/dev/sparklab
         export ADT4_DLS_PKG=$ADT4_WS/src/awesome_dcist_t4/dcist_launch_system
         export ADT4_OUTPUT_DIR=$ADT4_WS/adt4_output/init
-        export ADT4_DEEPGRAM_API_KEY=key
 
         export ADT4_ROBOT_NAME=hamilton
         export ADT4_PLATFORM_ID=topaz
@@ -127,6 +126,7 @@ sr2() {
         source /usr/share/colcon_cd/function/colcon_cd.sh
         source $ADT4_ENV/spark_env/bin/activate
         export _colcon_cd_root=/opt/ros/$ROS_DISTRO/
+        alias colcon="python -m colcon"
         eval "$(register-python-argcomplete ros2)"
         eval "$(register-python-argcomplete colcon)"
         return
@@ -141,7 +141,11 @@ sr2() {
 
 # Connect to display (e.g. connect HDMI-1)
 connect() {
-    xrandr --output $1 --auto --right-of eDP-1
+    if [[ "$2" == "mirror" ]]; then
+        xrandr --output $1 --auto --same-as eDP-1
+    else
+        xrandr --output $1 --auto --right-of eDP-1
+    fi
 }
 
 # Disconnect from display (e.g. disconnect HDMI-1)
@@ -153,3 +157,6 @@ disconnect() {
 mntblk() {
     sudo mount -o umask=0 $1 $2
 }
+
+# Source the secrets file
+source ~/.secrets
