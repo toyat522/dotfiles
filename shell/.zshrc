@@ -64,6 +64,13 @@ setopt hist_find_no_dups
 # Add PlatformIO to PATH if found
 [ -d ~/.platformio ] && export PATH=$PATH:~/.platformio/penv/bin
 
+# Add Golang to PATH if found
+if [[ -d /usr/local/go/bin ]]; then
+    export PATH="/usr/local/go/bin:$PATH"
+    export PATH="$HOME/dev/go/bin:$PATH"
+    export GOPATH="$HOME/dev/go"
+fi
+
 # Enable vim keybindings
 bindkey -v
 

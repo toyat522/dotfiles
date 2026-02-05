@@ -8,9 +8,6 @@ fi
 if [[ -d $HOME/.local/bin ]]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
-if [[ -d /usr/local/go/bin ]]; then
-    export "PATH=/usr/local/go/bin:$PATH"
-fi
 
 # If DISPLAY is not set and tty1, then set gtk theme and run Xserver
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
