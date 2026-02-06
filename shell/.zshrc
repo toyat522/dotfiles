@@ -84,7 +84,7 @@ alias vi="nvim"
 alias vim="nvim"
 alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 alias ipython3="python3 -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
-alias telerun="uvx telerun"
+alias tks="tmux kill-session"
 
 # Source ROS2 function (e.g. sr2 humble)
 sr2() {
