@@ -16,6 +16,7 @@ vim.opt.expandtab = true  -- tabs are spaces
 vim.opt.number = true	  -- show absolute number
 vim.opt.cursorline = true -- highlight cursor line underneath the cursor
 vim.opt.wrap = false      -- prevent wrapping
+vim.opt.scrolloff = 12    -- keep cursor centered vertically
 
 -- Searching
 vim.opt.incsearch = true  -- search as characters are entered
