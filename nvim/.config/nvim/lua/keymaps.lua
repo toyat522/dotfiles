@@ -5,6 +5,10 @@ vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
 vim.keymap.set("n", "<A-,>", ":BufferPrevious<CR>")
 vim.keymap.set("n", "<A-.>", ":BufferNext<CR>")
 
+-- Re-order with prev/next buffer
+vim.keymap.set("n", "<A-S-,>", ":BufferMovePrevious<CR>")
+vim.keymap.set("n", "<A-S-.>", ":BufferMoveNext<CR>")
+
 -- Close buffer
 vim.keymap.set("n", "<A-w>", ":BufferClose<CR>")
 
