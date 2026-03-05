@@ -52,7 +52,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
         }
         local line_diagnostics = vim.diagnostic.get(0, { lnum = vim.api.nvim_win_get_cursor(0)[1] - 1 })
         if #line_diagnostics > 0 then
-            vim.diagnostic.open_float(nil, opts)
+            vim.diagnostic.open_float(opts)
         end
     end,
 })
