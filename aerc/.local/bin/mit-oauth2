@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+import msal
+import os
+import sys
+
+# MIT's Azure AD Tenant
+TENANT_ID = "64afd9ba-0ecf-4acf-bc36-935f6235ba8b"
+
+# Thunderbird's registered Microsoft OAuth app
+CLIENT_ID = "9e5f94bc-e8a4-4e73-b8be-63364c29d753"
+SCOPES = [
+    "https://outlook.office.com/IMAP.AccessAsUser.All",
+    "https://outlook.office.com/SMTP.Send",
+]
+CACHE_FILE = os.path.expanduser("~/.cache/mit-oauth2-token.json")
+
+cache = msal.SerializableTokenCache()
+if os.path.exists(CACHE_FILE):
+    cache.deserialize(open(CACHE_FILE).read())
+
+app = msal.PublicClientApplication(
+    CLIENT_ID,
+    authority=f"https://login.microsoftonline.com/{TENANT_ID}",
+    token_cache=cache,
+)
+
+accounts = app.get_accounts()
+result = None
+if accounts:
+    result = app.acquire_token_silent(SCOPES, account=accounts[0])
+
+if not result:
+    flow = app.initiate_device_flow(scopes=SCOPES)
+    print(flow["message"], file=sys.stderr)
+    result = app.acquire_token_by_device_flow(flow)
+
+if "access_token" not in result:
+    print(f"Error: {result.get('error_description')}", file=sys.stderr)
+    sys.exit(1)
+
+if cache.has_state_changed:
+    os.makedirs(os.path.dirname(CACHE_FILE), exist_ok=True)
+    open(CACHE_FILE, "w").write(cache.serialize())
+
+print(result["access_token"])
