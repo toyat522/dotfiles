@@ -1,3 +1,4 @@
+vim.opt.exrc = true               -- load .nvim.lua from project directories
 vim.opt.clipboard = "unnamedplus" -- use system clipboard
 vim.opt.mouse = "a" 		      -- allow the mouse to be used in vim
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
