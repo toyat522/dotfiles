@@ -1,3 +1,8 @@
+-- Telescope
+local telescope = require("telescope.builtin")
+vim.keymap.set("n", "<C-p>", telescope.find_files)
+vim.keymap.set("n", "<C-f>", telescope.live_grep)
+
 -- Ctrl+n to open nvim-tree
 vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
 

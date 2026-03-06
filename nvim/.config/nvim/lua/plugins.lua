@@ -141,5 +141,14 @@ require("lazy").setup({
             vim.lsp.enable({'pylsp', 'clangd'})
         end,
     },
+
+    -- Telescope fuzzy finder
+    {
+        "nvim-telescope/telescope.nvim", version = "*",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
+        }
+    }
 })
 require("lsp")
