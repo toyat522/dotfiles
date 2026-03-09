@@ -126,7 +126,7 @@ require("lazy").setup({
                             },
                             pycodestyle = {
                                 enabled = true,
-                                maxLineLength = 88,
+                                maxLineLength = 100,
                             },
                         }
                     }
