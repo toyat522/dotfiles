@@ -16,7 +16,6 @@ sudo apt install \
     ripgrep \
     software-properties-common \
     sxiv \
-    xclip \
     zathura \
     zsh
 
@@ -26,19 +25,29 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 sudo snap install alacritty --classic
 ```
 
-If on `i3`, additionally run
+If on `i3` (X11), additionally run
 
 ```
-sudo apt install feh i3 polybar python3-i3ipc rofi
+sudo apt install \
+    i3 \
+    feh \
+    xclip \
+    polybar \
+    python3-i3ipc \
+    rofi
 ```
 
 If on `sway` (Wayland), additionally run
 
 ```
 sudo apt install \
-    sway swayidle swaylock \
+    sway \
+    swayidle \
+    swaylock \
+    wl-clipboard \
     waybar \
-    grim slurp \
+    grim \
+    slurp \
     gammastep \
     dex \
     python3-i3ipc
