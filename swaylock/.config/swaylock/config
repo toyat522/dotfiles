@@ -2,7 +2,7 @@ screenshots
 effect-blur=7x5
 clock
 timestr=%H:%M:%S
-datestr=%A %e %B %Y
+datestr=%a %e %B %Y
 
 color=282a36ff
 
