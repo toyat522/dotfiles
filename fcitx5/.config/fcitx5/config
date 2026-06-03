@@ -1,0 +1,9 @@
+[Hotkey/TriggerKeys]
+0=Control+space
+1=Zenkaku_Hankaku
+
+[Hotkey/EnumerateGroupForwardKeys]
+0=Super+space
+
+[Hotkey/EnumerateGroupBackwardKeys]
+0=Shift+Super+space

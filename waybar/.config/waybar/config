@@ -1,0 +1,87 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 26,
+    "margin-top": 6,
+    "margin-left": 16,
+    "margin-right": 16,
+
+    "modules-left": ["custom/launcher", "custom/sep", "sway/window"],
+    "modules-center": ["sway/workspaces"],
+    "modules-right": ["backlight", "pulseaudio", "network", "battery", "clock"],
+
+    "custom/launcher": {
+        "format": "<span size='14336'></span>",
+        "on-click": "rofi -modi drun,run -show drun -icon-theme 'Papirus' -show-icons",
+        "tooltip": false
+    },
+
+    "custom/sep": {
+        "format": "|",
+        "tooltip": false
+    },
+
+    "sway/window": {
+        "max-length": 53
+    },
+
+    "sway/workspaces": {
+        "format": "<span size='14336'>{icon}</span>",
+        "format-icons": {
+            "1": " ",
+            "2": "󰈹 ",
+            "3": " ",
+            "4": "󰘐 ",
+            "5": "󰚩 ",
+            "6": " ",
+            "7": "󰊴 ",
+            "8": "󰈙 ",
+            "9": "󰗃 ",
+            "default": " "
+        }
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}",
+        "format-icons": ["󰃞", "󰃟", "󰃠"]
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}",
+        "format-muted": " ",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "network": {
+        "interface": "wlp0s20f3",
+        "format-wifi": "󰤨 ",
+        "format-disconnected": "󰤭 ",
+        "format-linked": "󰤨 ",
+        "interval": 3
+    },
+
+    "battery": {
+        "bat": "BAT0",
+        "adapter": "AC",
+        "full-at": 98,
+        "interval": 5,
+        "format": "{icon} {capacity}",
+        "format-charging": "󰢜 {capacity}",
+        "format-full": "󰁹 {capacity}",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"],
+        "states": {
+            "critical": 15
+        }
+    },
+
+    "clock": {
+        "interval": 5,
+        "format": " {:%e %b %Y  󰥔 %I:%M %p}",
+        "format-alt": " {:%a,%e  󰥔 %I:%M:%S %p}",
+        "tooltip": false
+    }
+}
