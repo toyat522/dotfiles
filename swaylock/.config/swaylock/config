@@ -29,4 +29,3 @@ line-uses-ring
 indicator-radius=120
 indicator-thickness=10
 indicator-idle-visible
-show-failed-attempts
