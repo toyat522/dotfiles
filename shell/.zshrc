@@ -80,7 +80,6 @@ bindkey -v
 # Aliases
 alias bat="bat -p"
 alias cat="bat -p"
-alias grep="rg"
 alias ls="eza --color=always"
 alias matlab="matlab -nodesktop"
 alias vi="nvim"
