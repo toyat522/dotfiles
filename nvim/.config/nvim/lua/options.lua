@@ -19,6 +19,11 @@ vim.opt.cursorline = true -- highlight cursor line underneath the cursor
 vim.opt.wrap = false      -- prevent wrapping
 vim.opt.scrolloff = 12    -- keep cursor centered vertically
 
+-- Folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99
+
 -- Searching
 vim.opt.incsearch = true  -- search as characters are entered
 vim.opt.ignorecase = true -- ignore case in searches by default
