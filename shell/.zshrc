@@ -67,6 +67,9 @@ setopt hist_find_no_dups
 # Add PlatformIO to PATH if found
 [ -d ~/.platformio ] && export PATH=$PATH:~/.platformio/penv/bin
 
+# Set default editor
+export EDITOR="nvim"
+
 # Add Golang to PATH if found
 if [[ -d /usr/local/go/bin ]]; then
     export PATH="/usr/local/go/bin:$PATH"
@@ -80,13 +83,13 @@ bindkey -v
 # Aliases
 alias bat="bat -p"
 alias cat="bat -p"
-alias ls="eza --color=always"
-alias matlab="matlab -nodesktop"
-alias vi="nvim"
-alias vim="nvim"
+alias ip="ip -c"
 alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 alias ipython3="python3 -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+alias ls="eza --color=always"
 alias tks="tmux kill-session"
+alias vi="nvim"
+alias vim="nvim"
 
 # Source ROS2 function (e.g. sr2 humble)
 sr2() {
