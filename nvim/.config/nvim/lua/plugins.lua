@@ -163,4 +163,3 @@ require("lazy").setup({
         }
     }
 })
-require("lsp")
