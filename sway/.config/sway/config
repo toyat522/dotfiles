@@ -39,7 +39,7 @@ exec nm-applet --indicator
 exec blueman-applet
 
 # Japanese input
-exec $HOME/.config/sway/launch-im.sh
+exec fcitx5 -d --replace --disable classicui
 
 # Autotiling
 exec_always $HOME/.local/bin/autotiling
